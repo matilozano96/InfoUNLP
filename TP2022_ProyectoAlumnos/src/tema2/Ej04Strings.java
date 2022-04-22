@@ -11,10 +11,13 @@ public class Ej04Strings {
             System.out.print((i+1) + ": ");
             v[i] = Lector.leerString();
         }
-    
+        
+        String cadena = new String();
         for (int i = 0; i<tam; i++){
-            System.out.print(v[i].charAt(0));
+            cadena += v[i].charAt(0);
         }
+        
+        System.out.print(cadena);
     }
     
 }
