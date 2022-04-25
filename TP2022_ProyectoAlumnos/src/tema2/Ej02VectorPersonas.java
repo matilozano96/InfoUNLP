@@ -3,15 +3,16 @@ package tema2;
 import PaqueteLectura.GeneradorAleatorio;
 
 public class Ej02VectorPersonas {
+    final static int CANT = 10;
+    
     public static void main(String[] args) {
         GeneradorAleatorio.iniciar(); 
-        int cant = 10;
-        Persona [] p = new Persona [cant];
+        Persona [] p = new Persona [CANT];
         int dimL = 0;
         
-        for (int i=0; i < cant; i++){
+        for (int i=0; i < CANT; i++){
             int e = GeneradorAleatorio.generarInt(100);
-            if (e == 0) { i = cant; }
+            if (e == 0) { i = CANT; }
             else {
                 p[i] = new Persona(GeneradorAleatorio.generarString(20), GeneradorAleatorio.generarInt(99999998), e);
                 dimL++;
