@@ -1,17 +1,8 @@
-/*
-Clase Libro a la cual se agregaron constructores. Tema 4.
- */
 package tema4;
-
 import java.util.Calendar;
-
-/**
- *
- * @author vsanz
- */
 public class Libro {
    private String titulo;
-   private String primerAutor; 
+   private Autor primerAutor; 
    private String editorial;
    private int añoEdicion;
    private String ISBN; 
@@ -19,7 +10,7 @@ public class Libro {
      
     /* Constructores */
     public Libro(  String unTitulo,  String unaEditorial, 
-    int unAñoEdicion,  String unPrimerAutor, String unISBN, double unPrecio){
+    int unAñoEdicion,  Autor unPrimerAutor, String unISBN, double unPrecio){
          titulo = unTitulo;
          editorial = unaEditorial; 
          añoEdicion= unAñoEdicion;
@@ -28,7 +19,7 @@ public class Libro {
          precio = unPrecio;
     }
     
-    public Libro(  String unTitulo,  String unPrimerAutor, String unISBN, double unPrecio){
+    public Libro(  String unTitulo,  Autor unPrimerAutor, String unISBN, double unPrecio){
          titulo = unTitulo;
          editorial = "Kapelusz"; 
          añoEdicion= Calendar.getInstance().get(Calendar.YEAR);
@@ -54,7 +45,7 @@ public class Libro {
         return añoEdicion;
     }
   
-    public String getPrimerAutor(){
+    public Autor getPrimerAutor(){
         return primerAutor;
     } 
     public String getISBN(){
@@ -75,7 +66,7 @@ public class Libro {
          añoEdicion = unAño;
     }
    
-    public void setPrimerAutor(String unPrimerAutor){
+    public void setPrimerAutor(Autor unPrimerAutor){
          primerAutor=unPrimerAutor;
     } 
     public void setISBN(String unISBN){
