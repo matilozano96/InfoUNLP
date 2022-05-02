@@ -17,8 +17,9 @@ public abstract class Figura {
     
     public String toString(){
         String aux = "Area: " + this.calcularArea() +
-                     " CR: "  + getColorRelleno() + 
-                      " CL: " + getColorLinea();             
+                     " - Perimetro: " + this.calcularPerimetro()+
+                     " - CR: "  + getColorRelleno() + 
+                      " - CL: " + getColorLinea();             
              return aux;
        }
 
@@ -34,6 +35,12 @@ public abstract class Figura {
     }
     public void setColorLinea(String unColor){
         colorLinea = unColor;       
+    }
+    
+    public void despintar() { 
+        colorLinea = "0x000000"; 
+        colorRelleno = "0xFFFFFF";
+    
     }
     
     public abstract double calcularArea();
