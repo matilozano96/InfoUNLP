@@ -1,6 +1,6 @@
 package tema4;
 public class Estante {
-    private int DF = 2;
+    private int DF = 1;
     private Libro [] libros;
     private int DL = 0;
     
@@ -19,11 +19,16 @@ public class Estante {
         else libros[DL++]=l;
     }
     public Libro buscarLibro(String t) {
-        int i;
-        for (i=0; (i < DL) && !(libros[i].getTitulo().equals(t)); i++){}
+        Libro ret = null;
+        for (int i = 0; i < DL && ret == null; i++) { 
+            if (libros[i].getTitulo().equals(t)) ret = libros[i];
+        }
+        return ret;
         
-        if (i == DL) return null;
-        return libros[i];
+        // for loop falopa
+        // for (i=0; (i < DL) && !(libros[i].getTitulo().equals(t)); i++){}
+        // if (i == DL) return null;
+        // return libros[i];
     }
     
 }
