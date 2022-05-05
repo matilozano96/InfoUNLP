@@ -1,0 +1,108 @@
+
+Declaracion del arbol:
+``` 
+    arbol = ^.nodo;
+    nodo = record
+        dato = transaccion;
+        izq = arbol;
+        der = arbol;
+    end;
+```
+
+Imprimir el arbol:
+```
+procedure printArbol (a: arbol);
+# Recursivo. Explora izquierda primero. Imprime. Explora derecha. Regresa al nodo anterior. El resultado es una impresion de izquierda a derecha.
+    begin
+        if (a <> nil) then begin
+            printArbol(a^.izq);
+            writeln(a^.dato);
+            printArbol(a^.der);
+        end;
+    end;
+```
+
+Agregar dato al arbol (Ascendente):
+```
+procedure agregarArbol(var a: arbol; d: dato);
+var nuevoA: arbol;
+begin
+    if (a = nil) then begin
+        new(nuevoA);
+        nuevoA^.dato:= d;
+    end
+    else if (a^.dato < dato) then agregarArbol(a^.izq)
+    else if (a^.dato > dato) then agregarArbol(a^.der);
+    # Ignora los casos en los que a^.dato = dato. No ingresa duplicados.
+end;
+```
+
+Buscar dato en el arbol, retornar puntero al nodo en cuestion o null en caso de no encontrarlo
+```
+function buscarDato(a: arbol; n: integer);
+var temp: arbol;
+begin
+    temp:= nil;
+    if (a <> nil) then begin
+        if (a^.dato.num = n) then temp:= a
+        else begin 
+            temp:= buscarDato(a^.der);
+            if (temp:= nil) then temp:= buscarDato(a^.izq);
+        end;
+    end;
+    buscarDato:= temp;
+end;
+```
+
+Recorrer lista de datos, agregandolas a un nuevo arbol.
+```
+procedure recorrerLista(l:lista; var a:arbol);
+var
+    temp:lista;
+begin
+    if (l <> nil) then begin
+        temp:= l;
+        agregarArbol(a, temp^.dato);
+        recorrerPedidos(l^.sig, a);
+    end;
+end;
+```
+
+Recorrer Arbol, retornar una lista de datos que contienen un valor especifico
+```
+procedure buscarArbol(a:arbol; busc:integer; var l:lista);
+begin
+    if (a <> nil) then begin
+        buscarArbol(a^.izq, busc, l);
+        if (a^.dato.num = busc) then insertarLista(a^.dato, l) // Estandar. Crear el dato, implementar atras o adelante, agregar. var l        
+        buscarArbol(a^.der, busc, l);
+    end;
+end;
+```
+
+Insertar en la lista(para el anterior):
+```
+// Adelante
+procedure insertarAdelante(d: dato, var l: lista);
+var nuevo: lista;
+begin
+    new(nuevo);
+    nuevo^.dato:= d;
+    nue^.sig:= l;
+    l:= nuevo;
+end;
+
+// Atras
+procedure insertarAtras(d: dato, var l: lista);
+var nuevo: lista;
+begin
+    if (l = nil) then begin
+        new(nuevo);
+        nuevo^.dato:= d;
+        nuevo^.sig:= nil;
+        l:= nuevo;
+    end
+    else insertarLista(d, l^.sig);
+end;
+
+```

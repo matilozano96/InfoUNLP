@@ -1,0 +1,113 @@
+Agregar al final (Lista):
+```
+procedure agregarAlFinal (var l: lista; d: dato);
+var nuevo, temp: lista;
+begin
+    new(nuevo);
+    nuevo^.dato := d;
+    temp:= l;
+    
+    if (l = nil) then l:= nuevo
+    else begin
+        while (temp^.sig <> nil) do temp:= temp^.sig;
+        temp^.sig:= nuevo;
+    end;
+end;
+```
+
+Agregar al principio (Lista):
+```
+procedure agregarAlPrincipio (var l: lista; d: dato);
+var nuevo: lista;
+begin
+    new(nuevo);
+    nuevo^.dato := d;
+    
+    if (l = nil) then l:= nuevo
+    else begin
+        nuevo^.sig := l;
+        l:= nuevo;
+    end;
+end;
+```
+
+Agregar ordenado (Lista):
+Nota: Para descendente simplemente invertir los operadores
+```
+procedure agregarAscendente (var l: lista; d: dato);
+var nuevo, temp, prev: lista;
+begin
+    new(nuevo);
+    nuevo^.dato := d;
+    
+    if (l = nil) then l:= nuevo
+    else begin
+        temp:= l;
+        while ((temp <> nil) and (temp^.dato.num < d.num)) do begin
+            prev:= temp;
+            temp:= temp^.sig;
+        end;
+        nuevo^.sig:= temp;
+        prev^.sig:= nuevo;
+    end;
+end;
+```
+NOTA: verificar que no haya problemas con el hecho de que se evalue temp = nil y el dato de temp en la misma llamada.
+
+Eliminar valor x de la lista:
+Si hay un solo valor en la lista y ese valor es el numero a borrar, prev tiene el mismo valor que temp, y el referente se borra completamente. No parece optimo, pero bueh.
+```
+procedure eliminarElemento (var l: lista; num: integer);
+var temp, prev: lista;
+begin
+    temp:= l;
+    prev:= temp;
+    
+    while ((temp <> nil) and (temp^.dato <> num)) do begin
+        prev:= temp;
+        temp:= temp^.sig;
+    end;
+    if (temp <> nil) then begin
+        prev^.sig:= temp^.sig;
+        dispose(temp);
+    end;
+    
+end;
+```
+
+OrdenarVector (de tipo dato que contiene atributo num):
+```
+Procedure ordenarVector(var v:vector; dimL:integer);
+    var
+        i,j: integer;
+        cur: dato;
+    begin
+        for i:=2 to dimL do begin
+            actual:= v[i];
+            j:= i-1;
+            while(j>0)and(v[j].num > cur.num) do begin
+                v[j+1]:= v[j];
+                j:= j-1;
+            end;
+            v[j+1]:= actual;
+        end;
+    end;
+
+
+```
+
+Busqueda dicotomica
+```
+function busquedaDicotomica(v: vector; pri, fin, num: integer); 
+var pos: integer; 
+begin 
+    if (pri > fin) then busquedaDicotomica:= -1
+    else begin
+        pos:= (pri+fin) / 2;
+        if (v[pos].num <> num) then
+            if (num < v[pos].num) then busquedaDicotomica:= busquedaDicotomica(v, pri, pos-1, num)
+            else busquedaDicotomica:= busquedaDicotomica(v, pos+1, fin, num)
+        else busquedaDicotomica:= pos;
+    end;
+end;
+```

@@ -1,0 +1,165 @@
+PASCAL SINTAXIS GRAL
+
+Declarar rangos:
+```
+TYPE
+    # Para String
+    type str = string [ int ];
+    # Para int, char
+    type rango = inicial..final;
+
+```
+
+Procedure y Function
+
+```
+
+Procedure nombre (var par1: tipo; par2: tipo);
+Type...
+Var...
+begin
+...
+end;
+
+en Program main;
+...
+begin
+nombre(var1, var2);
+end.
+
+---------------------------------------------------------
+
+Function nombre (var par1: tipo; par2: tipo): tipo; //Se declara el tipo que se va a retornar
+Type...
+Var...
+begin
+...
+nombre := ...; //Esto es el return, del tipo asignado en la declaracion. Se usa el nombre de la funcion
+end;
+
+Program main;
+begin
+test := nombre(par);
+end.
+
+```
+
+General: 
+```
+----------------------------------------------------
+
+ESQUEMA GENERAL
+program name;
+CONST...
+TYPE...
+Var... (Global)
+PROCEDURE...
+FUNCTION...
+Var... (Propias de Main)
+begin...
+end.
+
+--------------------------------------------
+
+Tipos de parametros:
+
+PAR por referencia (pointer)
+procedure name(var x: tipo);
+
+PAR por valor (local)
+procedure name(x: tipo);
+
+PAR por referencia, por valor (ambas a la vez)
+procedure name(x: tipo; var x:tipo);
+
+---------------------------------------------
+
+```
+
+Declarar Registros
+```
+Para declarar registros:
+
+type
+  nombre = record
+          var1 : tipo;
+          var2 : tipo;
+          var3 : tipo;
+    (etc)
+        end;
+
+para usarlos
+begin
+    nombre.var1:= x;
+    nombre.var2:= y;
+end;
+
+O
+
+with nombre begin:
+    var1:= x;
+    var2:= y;
+end;
+
+```
+
+Para declarar Array/Arreglo/Vector:
+```
+type // Declaracion del tipo
+    nombre_array = array [rango] of (tipo);
+
+var // Declaracion de la variable
+    vector: nombre_array;
+
+para usar:
+
+begin
+// Modifica el valor en el espacio de memoria 1 de la cadena mi_array[]
+mi_array[1]:= x;
+mi_array[2]:= y;
+end;
+```
+
+Punteros
+Existiendo un tipo de dato al que apuntar
+```
+    TYPE
+    p = ^tipo;
+    
+    var puntero: p;
+        puntero2: ^type;
+        # Este segundo no lo use nunca igual
+```
+
+Usar punteros para apuntar a un registro y crear una lista:
+```
+    registro = record
+        var1: tipo;
+        var2: tipo;
+    end;
+    lista = ^nodo;
+    nodo = record
+        dato: registro;
+        sig: lista;
+    end;
+```
+
+Array de punteros
+```
+    vector = array [1..5] of lista;
+```
+
+Manipular punteros:
+```
+# Asignar memoria para un tipo de dato del apuntado por puntero p
+    new(p);
+    
+# Modificar dato apuntado por puntero p
+    p^.dato:= nuevoValor;
+    
+# Modificar espacio de memoria apuntado por p. Cuidado con no perder la referencia si se asigno memoria
+    p:= otroP;
+    
+# Liberar memoria apuntada por p
+    dispose(p);
+```
