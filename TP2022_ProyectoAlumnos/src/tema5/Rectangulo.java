@@ -1,54 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tema5;
-
 public class Rectangulo extends Figura{
-    private double base;
-    private double altura;
     
-    public Rectangulo(double base, double altura, String unColorR, String unColorL){
+    private double lado;
+    private double lado2;
+    
+    public Rectangulo(double unLado, double otroLado, String unColorR, String unColorL){
         super(unColorR,unColorL);
-        setBase(base);
-        setAltura(altura);
-    } 
+        setLado2(otroLado);
+        setLado(unLado);
 
-    public double getBase() {
-        return base;
+    } 
+    
+    public double getLado(){
+        return lado;       
+    }
+    public void setLado(double unLado){
+        lado=unLado;
+    }
+    public double getLado2(){
+        return lado2;       
+    }
+    public void setLado2(double unLado){
+        lado2=unLado;
     }
 
-    public void setBase(double unaBase) {
-        base = unaBase;
+    public double calcularArea(){
+       return (getLado()* getLado2());
     }
     
-    public double getAltura() {
-        return altura;
-    }
-
-    public void setAltura(double unaAltura) {
-        altura = unaAltura;
-    }
-
-   
-    public double calcularArea() {
-        return (getBase()*getAltura()); 
-    }
-
-  
-    public double calcularPerimetro() {
-        return (2*getBase()+2*getAltura());
+    public double calcularPerimetro(){
+       return (getLado()*2 + getLado2() * 2);
     }
     
     public String toString(){
        String aux = super.toString() + 
-                    " Base: " + getBase() +
-                    " Altura: " + getAltura();
+                    " Lado 1: " + getLado() +
+                    " Lado 2: " + getLado2();
        return aux;
     }
-
-    
-    
-    
 }
