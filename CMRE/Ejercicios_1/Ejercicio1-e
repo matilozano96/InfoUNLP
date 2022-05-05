@@ -1,4 +1,5 @@
 programa Ejercicio-1-e
+{ No hay riesgo de colision }
 areas
   parte1ciudad : AreaC(1,1,50,50)
   parte2ciudad : AreaC(51,51,99,99)
@@ -27,3 +28,4 @@ comenzar
   Iniciar(robot1, 10, 10)
   Iniciar(robot2, 62, 62)
 fin
+

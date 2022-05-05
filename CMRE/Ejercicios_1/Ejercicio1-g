@@ -1,5 +1,5 @@
 programa Ejercicio-1-g
-  
+{ Hay posibilidad de colision. Ambos robots van a intentar ir a (20,20) sin bloquear la celda y tomar todas las flores. Si el primer Robot tarda mucho, el segundo va a querer ingresar y generar una colision. }
 procesos
   proceso juntar (ES flor:numero)
   comenzar
@@ -20,7 +20,7 @@ robots
     f:=0
     Pos (20,20)
     juntar (f)
-	Pos(10,10)
+    Pos(10,10)
     Informar (f)
   fin
   
@@ -33,7 +33,7 @@ robots
       mover
     Pos(20,20)
     juntar (f)
-	Pos(62,62)
+    Pos(62,62)
     Informar(f)
   fin
      
@@ -47,3 +47,4 @@ comenzar
   Iniciar(robot1, 10, 10)
   Iniciar(robot2, 62, 62)
 fin
+

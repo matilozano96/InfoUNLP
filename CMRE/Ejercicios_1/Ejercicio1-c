@@ -1,4 +1,5 @@
-programa Ejercicio-1-c
+programa Ejercicio-1-c.
+{ El programa funciona pero es tecnicamente incorrecto. Ambos robots intentan ingresar a (20,20) en distintos momentos. No llegan a chocar, pero no hay nada que evite que lo hagan. }
 areas
   ciudad : AreaC(1,1,100,100)
 robots 
@@ -24,3 +25,5 @@ comenzar
   Iniciar(robot1, 10, 10)
   Iniciar(robot2, 13, 15 ) 
 fin
+
+

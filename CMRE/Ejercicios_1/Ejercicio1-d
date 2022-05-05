@@ -1,4 +1,5 @@
 programa Ejercicio-1-d
+{ No va a haber colision porque uno de los robots no es iniciado. Si lo fuera, chocarian en (40,40).}
 areas
   ciudad : AreaC(1,1,100,100)
 robots 
@@ -23,3 +24,6 @@ comenzar
   AsignarArea(robot2,ciudad)
   Iniciar(robot1, 10, 10)
 fin
+
+
+

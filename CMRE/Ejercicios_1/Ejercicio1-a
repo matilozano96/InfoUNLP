@@ -1,4 +1,5 @@
 programa Ejercicio-1-a
+{ No es correcto; ambos robots van a querer ir a Pos(20,20) y generar una colisión }
 areas
   ciudad : AreaC(1,1,100,100)
 robots 
@@ -20,3 +21,4 @@ comenzar
   Iniciar(robot1, 10, 10)
   Iniciar(robot2, 13, 15 ) 
 fin
+
