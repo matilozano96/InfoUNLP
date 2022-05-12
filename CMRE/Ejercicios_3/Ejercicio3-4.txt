@@ -30,13 +30,12 @@ robots
     x:= PosAv
     y:= PosCa
     rectangulo(20,15)
-    BloquearEsquina(10,10)
-    Pos(10,10)
     mientras HayFlorEnLaBolsa
+      BloquearEsquina(10,10)
+      Pos(10,10)
       depositarFlor
-    Pos(x,y)
-    LiberarEsquina(10,10)
-    
+      Pos(x,y)
+      LiberarEsquina(10,10)
   fin
 variables 
   robot1: tipo1 
@@ -49,6 +48,7 @@ comenzar
   Iniciar(robot1, 15, 15)
   Iniciar(robot2, 40, 40)
 fin
+
 
 
 

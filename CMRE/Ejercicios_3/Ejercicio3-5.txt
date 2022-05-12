@@ -34,12 +34,12 @@ robots
     RecibirMensaje(a, robotJefe)
     Pos(x,x)
     rectangulo(a,15)
-    BloquearEsquina(10,10)
-    Pos(10,10)
     mientras HayFlorEnLaBolsa
+      BloquearEsquina(10,10)
+      Pos(10,10)
       depositarFlor
-    Pos(x,x)
-    LiberarEsquina(10,10)
+      Pos(x,x)
+      LiberarEsquina(10,10)
   fin
   robot tipoJefe
   variables
@@ -73,6 +73,7 @@ comenzar
   Iniciar(robot1, 2, 2)
   Iniciar(robot2, 6, 6)
 fin
+
 
 
 
