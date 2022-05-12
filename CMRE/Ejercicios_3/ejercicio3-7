@@ -1,0 +1,48 @@
+programa Ejercicio3-7
+
+areas
+  ciudad : AreaC(1,1,100,100)
+
+robots 
+  robot tipo1
+  variables
+    x: numero
+    y: numero
+    seguir: boolean
+    f: numero
+  comenzar
+    x := PosAv
+    y := PosCa
+    seguir := V
+    mientras (seguir)
+      BloquearEsquina(15,23)
+      Pos(15,23)
+      si HayFlorEnLaEsquina
+        tomarFlor
+        f := f+1
+      seguir := HayFlorEnLaEsquina
+      Pos(x,y)
+      LiberarEsquina(15,23)
+    Informar('recolectadas', f)
+  fin
+
+variables 
+  robot1: tipo1
+  robot2: tipo1
+  robot3: tipo1
+  
+comenzar 
+  AsignarArea(robot1,ciudad)
+  AsignarArea(robot2,ciudad)
+  AsignarArea(robot3, ciudad)
+  Iniciar(robot1, 9, 9)
+  Iniciar(robot2, 11, 9) 
+  Iniciar(robot3, 13,9)
+fin
+
+
+
+
+
+
+
