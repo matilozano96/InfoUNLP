@@ -61,18 +61,18 @@ robots
       si (flo > max)
         max:= flo
         idMax:= id
-      si (idMax = 1)
-        EnviarMensaje(V, robot1)
-      sino 
-        EnviarMensaje(F, robot1)
-      si (idMax = 2)
-        EnviarMensaje(V, robot2)
-      sino 
-        EnviarMensaje(F, robot2)
-      si (idMax = 3)
-        EnviarMensaje(V, robot3)
-      sino 
-        EnviarMensaje(F, robot3)
+    si (idMax = 1)
+      EnviarMensaje(V, robot1)
+    sino 
+      EnviarMensaje(F, robot1)
+    si (idMax = 2)
+      EnviarMensaje(V, robot2)
+    sino 
+      EnviarMensaje(F, robot2)
+    si (idMax = 3)
+      EnviarMensaje(V, robot3)
+    sino 
+      EnviarMensaje(F, robot3)
   fin
 
 variables 
@@ -97,19 +97,4 @@ comenzar
   Iniciar(robot3, 13,9)
   Iniciar(robotJefe, 1,1)
 fin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
