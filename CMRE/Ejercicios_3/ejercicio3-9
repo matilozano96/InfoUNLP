@@ -1,6 +1,6 @@
 programa Ejercicio3-9
 procesos
-  proceso limpiarEsquina(ES f: numero; ES seguir: boolean)
+  proceso limpiarEsquina(ES seguir: boolean)
   variables
     x:numero
     y:numero
@@ -11,7 +11,6 @@ procesos
     Pos(15,23)
     si HayFlorEnLaEsquina
       tomarFlor
-      f := f+1
     seguir:= HayFlorEnLaEsquina
     Pos(x,y)
     LiberarEsquina(15,23)
@@ -26,18 +25,11 @@ robots
   robot tipo1
   variables
     seguir: boolean
-    f: numero
-    id: numero
-    num: numero
-    temp: boolean
   comenzar
-    RecibirMensaje(id, robotJefe)
-    seguir := V
-    mientras (seguir)
-      RecibirMensaje(num, robotJefe)
-      si (num = id) 
-        limpiarEsquina(f, temp)
-        EnviarMensaje(temp, robotJefe)
+    RecibirMensaje(seguir, robotJefe)
+    mientras (seguir) 
+      limpiarEsquina(seguir)
+      EnviarMensaje(seguir, robotJefe)
       RecibirMensaje(seguir, robotJefe)
   fin
   
@@ -46,19 +38,19 @@ robots
     seguir: boolean
     id: numero
   comenzar
-    EnviarMensaje(1, robot1)
-    EnviarMensaje(2, robot2)
-    EnviarMensaje(3, robot3)
     seguir := V
     mientras (seguir)
       Random(id, 1, 3)
-      EnviarMensaje(id, robot1)
-      EnviarMensaje(id, robot2)
-      EnviarMensaje(id, robot3)
+      si (id = 1)
+        EnviarMensaje(V, robot1)
+      si (id = 2)
+        EnviarMensaje(V, robot2)
+      si (id = 3)
+        EnviarMensaje(V, robot3)
       RecibirMensaje(seguir, *)
-      EnviarMensaje(seguir, robot1)
-      EnviarMensaje(seguir, robot2)
-      EnviarMensaje(seguir, robot3)
+    EnviarMensaje(F, robot1)
+    EnviarMensaje(F, robot2)
+    EnviarMensaje(F, robot3)
     Informar(V)
   fin
 
