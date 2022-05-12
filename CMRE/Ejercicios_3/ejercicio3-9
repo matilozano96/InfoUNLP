@@ -17,7 +17,6 @@ procesos
     LiberarEsquina(15,23)
   fin
 areas
-  areaFin : AreaC(20,20,20,20)
   ciudadC : AreaC(15,23,15,23)
   area1 : AreaP(9,9,9,9)
   area2 : AreaP(11,9,11,9)
@@ -40,23 +39,12 @@ robots
         limpiarEsquina(f, temp)
         EnviarMensaje(temp, robotJefe)
       RecibirMensaje(seguir, robotJefe)
-    EnviarMensaje(id, robotJefe)
-    EnviarMensaje(f, robotJefe)
-    RecibirMensaje(seguir, robotJefe)
-    si (seguir)
-      Pos(20,20)
-      mientras (HayFlorEnLaBolsa)
-        depositarFlor
-      Informar(V)
   fin
   
   robot tipoJefe
   variables
     seguir: boolean
-    flo : numero
-    max: numero
     id: numero
-    idMax: numero
   comenzar
     EnviarMensaje(1, robot1)
     EnviarMensaje(2, robot2)
@@ -71,33 +59,7 @@ robots
       EnviarMensaje(seguir, robot1)
       EnviarMensaje(seguir, robot2)
       EnviarMensaje(seguir, robot3)
-    idMax:= 0
-    max := 0
-    repetir 3
-      RecibirMensaje(id, *)
-      si (id = 1)
-        RecibirMensaje(flo, robot1)
-      si (id = 2)
-        RecibirMensaje(flo, robot2)
-      si (id = 3)
-        RecibirMensaje(flo, robot3)
-      si (flo > max)
-        max:= flo
-        idMax:= id
-    si (idMax = 1)
-      EnviarMensaje(V, robot1)
-    sino 
-      EnviarMensaje(F, robot1)
-    si (idMax = 2)
-      EnviarMensaje(V, robot2)
-    sino 
-      EnviarMensaje(F, robot2)
-    si (idMax = 3)
-      EnviarMensaje(V, robot3)
-    sino 
-      EnviarMensaje(F, robot3)
-    si (idMax = 0)
-      Informar(F)
+    Informar(V)
   fin
 
 variables 
@@ -110,9 +72,6 @@ comenzar
   AsignarArea(robot1,ciudadC)
   AsignarArea(robot2,ciudadC)
   AsignarArea(robot3, ciudadC)
-  AsignarArea(robot1,areaFin)
-  AsignarArea(robot2,areaFin)
-  AsignarArea(robot3,areaFin)
   AsignarArea(robotJefe, areaJ)
   AsignarArea(robot1,area1)
   AsignarArea(robot2,area2)
