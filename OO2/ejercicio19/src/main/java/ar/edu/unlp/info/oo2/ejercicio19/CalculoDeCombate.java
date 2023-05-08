@@ -29,13 +29,7 @@ public class CalculoDeCombate {
 			
 			return;
 		}
-		
-		// La implementacion de estos metodos seria llamar a un metodo atacar(personaje) del arma
-		// Este metodo es implementado según cada arma, de forma que cada tipo de arma llame a un metodo distinto sobre cada tipo de armadura
-		// Cada armadura reconoce los metodos de ataque de cada arma, y reacciona según la tabla
-		
-		// El problema con esta implementación es que es dificil de escalar; 
-		// hay que crear un metodo nuevo en la clase abstracta armadura, e implementarlo en cada tipo de armadura por cada arma nueva introducida
+		// Usa los parametros de fuerza y defensa de armas y armaduras respectivamente para calcular el daño dinamicamente
 		a.atacar(b);
 		b.atacar(a);
 	}

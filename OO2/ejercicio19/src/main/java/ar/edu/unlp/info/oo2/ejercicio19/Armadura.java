@@ -4,9 +4,12 @@ public abstract class Armadura {
 	private String nombre;
 	private int id;
 	
-	public Armadura(String n, int id) {
+	private int defensa;
+	
+	public Armadura(String n, int id, int def) {
 		this.nombre = nombre;
 		this.id = id;
+		this.defensa = def;
 	}
 	
 	public String getNombre(){
@@ -15,5 +18,9 @@ public abstract class Armadura {
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public int getDefensa() {
+		return this.defensa;
 	}
 }

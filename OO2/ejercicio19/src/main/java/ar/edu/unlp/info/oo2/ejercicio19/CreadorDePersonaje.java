@@ -1,5 +1,6 @@
 package ar.edu.unlp.info.oo2.ejercicio19;
 
+
 public final class CreadorDePersonaje {
 	
 	public static Personaje crearArquero(String n) {

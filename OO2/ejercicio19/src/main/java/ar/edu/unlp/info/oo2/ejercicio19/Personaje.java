@@ -18,7 +18,8 @@ public class Personaje {
 	
 	public void recibirDaño(int n) {
 		this.vida -= n;
-	}
+		if (vida < 0) { vida = 0;}
+		}
 	
 	public int getVida() {
 		return this.vida;
@@ -45,6 +46,9 @@ public class Personaje {
 	}
 	
 	public void atacar(Personaje p) {
-		return;
+		int atk = arma.getFuerza();
+		double reduccion = p.getArmadura().getDefensa()/10;
+		
+		p.recibirDaño((int) (atk * reduccion));
 	}
 }

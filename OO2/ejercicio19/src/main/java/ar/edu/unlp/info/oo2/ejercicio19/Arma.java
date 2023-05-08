@@ -4,9 +4,12 @@ public abstract class Arma {
 	private String nombre;
 	private int id;
 	
-	public Arma(String n, int id) {
+	private int fuerza;
+	
+	public Arma(String n, int id, int str) {
 		this.nombre = nombre;
 		this.id = id;
+		this.fuerza = str;
 	}
 	
 	public String getNombre(){
@@ -15,5 +18,9 @@ public abstract class Arma {
 	
 	public int getId() {
 		return this.id;
+	}
+	
+	public int getFuerza() {
+		return this.fuerza;
 	}
 }
